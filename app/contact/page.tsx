@@ -1,36 +1,43 @@
 "use client";
-import { Github, Mail, Twitter } from "lucide-react";
+import { Github, Mail, Linkedin } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
+import { SocialIcon } from 'react-social-icons'
 
 const socials = [
 	{
-		icon: <Twitter size={20} />,
-		href: "https://twitter.com/chronark_",
-		label: "Twitter",
-		handle: "@chronark_",
+		icon: <Linkedin size={20} />,
+		href: "https://linkedin.com/in/octavio-gzain",
+		label: "LinkedIn",
+		handle: "Profile",
 	},
 	{
 		icon: <Mail size={20} />,
-		href: "mailto:dev@chronark.com",
-		label: "Email",
-		handle: "dev@chronark.com",
+		href: "mailto:octagz.dev@gmail.com",
+		label: "@gmail.com",
+		handle: "octagz.dev",
 	},
 	{
 		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
+		href: "https://github.com/octagz",
 		label: "Github",
-		handle: "chronark",
+		handle: "octagz",
+	},
+	{
+		icon: <img src="./x2.png" style={{ width: '40%', height: 'auto', objectFit: 'contain' }}/>,
+		href: "https://x.com/ottogzain",
+		label: "X",
+		handle: "@ottogzain",
 	},
 ];
 
 export default function Example() {
 	return (
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-			<Navigation />
+			<Navigation currentPage="contact"/>
 			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-				<div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
+				<div className="h-auto md:h-[30vh] lg:h-[100vh] xl:h-[30vh] grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-4 lg:gap-16">
 					{socials.map((s) => (
 						<Card>
 							<Link
@@ -58,6 +65,7 @@ export default function Example() {
 					))}
 				</div>
 			</div>
+
 		</div>
 	);
 }

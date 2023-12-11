@@ -98,7 +98,7 @@ export default function Particles({
 		const y = Math.floor(Math.random() * canvasSize.current.h);
 		const translateX = 0;
 		const translateY = 0;
-		const size = Math.floor(Math.random() * 2) + 0.1;
+		const size = Math.floor(Math.random() * 5) + 0.1;
 		const alpha = 0;
 		const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
 		const dx = (Math.random() - 0.5) * 0.2;
@@ -153,6 +153,23 @@ export default function Particles({
 			drawCircle(circle);
 		}
 	};
+
+	const drawLine = (x1: number, y1: number, x2: number, y2: number, alpha: number) => {
+		if (context.current) {
+			context.current.save(); // Save the current state of the canvas
+			context.current.setTransform(dpr, 0, 0, dpr, 0, 0); // Reset the transformation
+		
+			context.current.beginPath();
+			context.current.moveTo(x1, y1);
+			context.current.lineTo(x2, y2);
+			context.current.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
+			context.current.stroke();
+		
+			context.current.restore(); // Restore the saved state, so other transformations remain for other drawings
+		}
+		};
+		
+	  
 
 	const remapValue = (
 		value: number,
@@ -222,6 +239,16 @@ export default function Particles({
 					true,
 				);
 			}
+			circles.current.forEach((otherCircle, j) => {
+				if (i !== j) {
+				  const dx = circle.x - otherCircle.x;
+				  const dy = circle.y - otherCircle.y;
+				  const distance = Math.sqrt(dx * dx + dy * dy);
+				  if (distance < 100) { // You can adjust this threshold
+					drawLine(circle.x, circle.y, otherCircle.x, otherCircle.y, circle.alpha);
+				  }
+				}
+			  });
 		});
 		window.requestAnimationFrame(animate);
 	};
