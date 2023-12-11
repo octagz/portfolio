@@ -37,20 +37,20 @@ export const Navigation: React.FC<{ currentPage: string }> = ({ currentPage }) =
 						Projects
 					</Link>
 					<Link
-						href="/contact"
-						className={`duration-200 hover:text-zinc-100 ${
-							currentPage === 'contact' ? 'text-zinc-100 underline' : 'text-zinc-400'
-						}`}
-						>
-						Contact
-					</Link>
-					<Link
 						href="/about"
 						className={`duration-200 hover:text-zinc-100 ${
 							currentPage === 'about' ? 'text-zinc-100 underline' : 'text-zinc-400'
 						}`}
 						>
 						About me
+					</Link>
+					<Link
+						href="/contact"
+						className={`duration-200 hover:text-zinc-100 ${
+							currentPage === 'contact' ? 'text-zinc-100 underline' : 'text-zinc-400'
+						}`}
+						>
+						Contact
 					</Link>
 					</div>
 

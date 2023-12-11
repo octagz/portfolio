@@ -37,7 +37,7 @@ export default function Example() {
 		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
 			<Navigation currentPage="contact"/>
 			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-				<div className="h-auto md:h-[30vh] lg:h-[100vh] xl:h-[30vh] grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-4 lg:gap-16">
+				<div className="h-auto grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-4 lg:gap-16">
 					{socials.map((s) => (
 						<Card>
 							<Link
@@ -46,7 +46,7 @@ export default function Example() {
 								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
 							>
 								<span
-									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
+									className="relative w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
 									aria-hidden="true"
 								/>
 								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
