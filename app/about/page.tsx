@@ -50,7 +50,7 @@ export default function Component() {
                     <p className="text-gray-400 md:text-lg dark:text-gray-400">
                         I love playing guitar, I'm in a shoegaze band called 
                         <a href="https://www.instagram.com/laedaddelespacio/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer"> La edad del espacio</a> 🎸.
-                        I also love playing football ⚽ and travelling around the world.
+                        I also love playing football ⚽ and traveling around the world.
                     </p>
                 </CardContent>
             </Card>
