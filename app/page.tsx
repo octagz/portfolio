@@ -1,7 +1,8 @@
+"use client"
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
-
+import { useState, useEffect } from 'react';
 
 const navigation = [
   { name: "Projects", href: "/projects" },
@@ -10,8 +11,25 @@ const navigation = [
 ];
 
 
-
 export default function Home() {
+  const name = "octavio gzain.";
+  const characters = name.split("");
+  const [visibleCount, setVisibleCount] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisibleCount(currentCount => {
+        if (currentCount < characters.length) {
+          return currentCount + 1;
+        } else {
+          clearInterval(interval);
+          return currentCount;
+        }
+      });
+    }, 50); // Adjust the interval time as needed
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
@@ -34,7 +52,12 @@ export default function Home() {
       />
 
       <h1 className="z-10 text-4xl text-transparent duration-5000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        octavio gzain
+        {characters.map((char, index) => (
+            <span key={index} className={index < visibleCount ? (index === characters.length - 1 ? 'visible blink' : 'visible') : 'invisible'}>
+                {char}
+            </span>
+          )
+        )}
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
