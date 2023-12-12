@@ -19,7 +19,9 @@ export default function Component() {
             </Avatar>
             <h1 className="text-3xl font-bold text-gray-200 tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">Octavio Gzain</h1>
             <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl dark:text-400">
-              Sr. Software Engineer, AI | Nuqlea | DigitalStrom AG
+              Sr. Software Engineer, AI | 
+              <a href="https://nuqlea.com/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer"> Nuqlea </a>|
+              <a href="https://www.digitalstrom.com/en/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer"> DigitalStrom </a>
             </p>
             <div className="flex flex-row items-center space-x-2 text-center">
               <Badge className="bg-gray-900 hover:bg-gray-100/50 text-gray-200 dark:hover:bg-gray-800/50" variant="secondary">
@@ -34,17 +36,17 @@ export default function Component() {
         <div className="flex justify-center border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
             <Card className="mt-10 max-w-4xl w-full px-4 rounded-lg" style={{ borderRadius: '1rem' }}>
                 <CardHeader>
-                    <h2 className="text-2xl text-gray-400 font-bold">About Me</h2>
+                    <h2 className="text-2xl text-gray-200 font-bold">About Me</h2>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-gray-400 md:text-lg dark:text-gray-400">
+                    <p className="text-gray-200 md:text-lg dark:text-gray-400">
                         Argentinian engineer with over 5 years of experience in the tech industry, having a solid foundation in software engineering with 
-                        a specialization in artificial intelligence. Every day I try to pursue my curiosity by learning new interesting things. My dream
+                        a specialization in artificial intelligence. Every day I try to pursue my curiosity by learning new and interesting things. My dream
                         is to live in California.
                     </p>
                 </CardContent>
                 <CardHeader>
-                    <h2 className="text-2xl text-gray-400 font-bold">Hobbies</h2>
+                    <h2 className="text-2xl text-gray-200 font-bold">Hobbies</h2>
                 </CardHeader>
                 <CardContent>
                     <p className="text-gray-400 md:text-lg dark:text-gray-400">
