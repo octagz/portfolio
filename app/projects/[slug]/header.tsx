@@ -34,7 +34,6 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 	}
 	let techs: string[] = []
 	techs = project.technologies?.split(",").map((tech: string) => { return tech.trim() }) || [];
-	console.log(techs)
 	useEffect(() => {
 		if (!ref.current) return;
 		const observer = new IntersectionObserver(([entry]) =>

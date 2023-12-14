@@ -1,0 +1,15 @@
+---
+title: "Data quality using ClodDQ"
+description: Development of data quality checks for data lake built on GCP with the goal of reducing uncertainty about displayed information to final users.
+technologies: "GCP, BigQuery, CloudDQ"
+date: "2023-03-01"  # Replace with actual date
+published: true
+---
+
+# Description
+
+With the objective of reducing errors on data shown to final users, a series of quality checks were implemented. This incremented the confidence level on the information displayed on our procurement platform.
+
+# Technical details
+* The solution leveraged Google's Cloud Data Quality Engine, specifically tailored for BigQuery integration.
+* Results from Data Quality validations were systematically stored in a dedicated BigQuery table. This table was utilized to populate dashboards, which were then programmatically accessed and monitored by data quality curators for ongoing assessment and management.

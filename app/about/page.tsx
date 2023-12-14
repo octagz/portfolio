@@ -41,15 +41,15 @@ export default function Component() {
                 <CardContent>
                     <p className="text-gray-200 md:text-lg dark:text-gray-400">
                         Argentinian engineer with over 5 years of experience in the tech industry, having a solid foundation in software engineering with 
-                        a specialization in artificial intelligence. Every day I try to pursue my curiosity by learning new and interesting things. My dream
-                        is to live in California.
+                        a specialization in artificial intelligence. Every day I try to pursue my curiosity by learning new and interesting things. 
+                        My aspiration is to broaden these exploratory endeavors to the United States, with a particular focus on California.
                     </p>
                 </CardContent>
                 <CardHeader>
                     <h2 className="text-2xl text-gray-200 font-bold">Hobbies</h2>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-gray-400 md:text-lg dark:text-gray-400">
+                    <p className="text-gray-200 md:text-lg dark:text-gray-400">
                         I love playing guitar, I'm in a shoegaze band called 
                         <a href="https://www.instagram.com/laedaddelespacio/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer"> La edad del espacio</a> 🎸.
                         I also love playing football ⚽ and traveling around the world.
