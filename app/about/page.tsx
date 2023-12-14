@@ -31,6 +31,38 @@ export default function Component() {
                 Specialization
               </Badge>
             </div>
+            <div className="flex flex-wrap items-center space-x-2 gap-2">
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                Python
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                NodeJS
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                Express
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                Flask
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                React
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                NextJS
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                Pytorch
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                GPT
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                Kubernetes
+              </Badge>
+              <Badge className="bg-orange-700 hover:bg-orange-300/50 text-white dark:hover:bg-orange-800/50" variant="secondary">
+                Docker
+              </Badge>
+            </div>
           </div>
         </div>
         <div className="flex justify-center border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
@@ -42,7 +74,7 @@ export default function Component() {
                     <p className="text-gray-200 md:text-lg dark:text-gray-400">
                         Argentinian engineer with over 5 years of experience in the tech industry, having a solid foundation in software engineering with 
                         a specialization in artificial intelligence. Every day I try to pursue my curiosity by learning new and interesting things. 
-                        My aspiration is to broaden these exploratory endeavors to the United States, with a particular focus on California.
+                        My aspiration is to broaden these exploratory endeavors by offering services to different countries in the world.
                     </p>
                 </CardContent>
                 <CardHeader>
