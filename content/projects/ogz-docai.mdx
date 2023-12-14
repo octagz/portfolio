@@ -1,10 +1,24 @@
 ---
 title: "AI Document Recognition Solution"
-description: Development of an AI document recognition solution using Google's DocumentAI, complemented with a feedback system for constant model improvement. This innovation led to a 75% reduction in manual invoice processing time.
+description: Development of an AI document recognition solution using Google's DocumentAI, complemented with a feedback system for constant model improvement. This innovation led to a 80% reduction in manual invoice processing time.
 technologies: "GCP, DocumentAI, Cloud functions, Appscript"
 date: "2023-04-01"  # Replace with actual date
 published: true
 ---
 
-The AI Document Recognition Solution was a groundbreaking project that utilized Google's DocumentAI to streamline document processing. It included a feedback mechanism to continually enhance the model's accuracy. This solution notably reduced the time required for manual invoice processing by 75%, marking a significant advancement in operational efficiency.
+![Schematics](/projects/docai2.png)
 
+# Project description
+
+The AI Document Recognition Solution was a groundbreaking project that utilized Google's DocumentAI to streamline document processing. It included a feedback mechanism to continually enhance the model's accuracy. This solution notably reduced the time required for manual invoice processing by 80%, marking a significant advancement in operational efficiency.
+
+---
+
+# Technical details
+
+When a PDF coming from a provider was uploaded to the system, an automatic process was triggered that hit an endpoint hosted on Google's cloud functions. This nodeJS endpoint acted as a wrapper for calling and parsing the output from [DocumentAI](https://cloud.google.com/document-ai?hl=es-419) solution. The JSON output was then normalized and dumped into a database for later processing.
+
+![Schematics](/projects/docai1.png)
+*PDFs from different providers and with different shapes are sent to the document recognition solution to be structured into a single and normalized JSON data structure.*
+
+A primary challenge encountered was the diverse formats of the PDF invoices. Each seller's invoice had a unique layout, necessitating the enhancement of Google's foundational invoice model. To address this, we uptrained the model with approximately 300 distinct invoice samples from various sellers. Following this extensive training and subsequent manual labeling, the model achieved an impressive accuracy rate of approximately 95%

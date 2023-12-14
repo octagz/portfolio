@@ -1,10 +1,27 @@
 ---
 title: "Datalake Architecture on GCP"
 description: Development of a datalake architecture from scratch on Google Cloud Platform (GCP), including cloud functions for data pipelines, BigQuery for data warehousing, and Looker for visualization. This infrastructure enabled daily data-driven decision-making for the business.
-technologies: "GCP, Cloud Functions, BigQuery, Looker"
+technologies: "GCP, Cloud Functions, BigQuery, Looker Studio"
 date: "2023-01-01"  # Replace with actual date
 published: true
 ---
 
+# Project description
+
 This project entailed developing a comprehensive datalake architecture on Google Cloud Platform. It included setting up cloud functions for efficient data pipelines, leveraging BigQuery for data warehousing, and utilizing Looker for insightful data visualization. The architecture played a pivotal role in enabling daily data-driven decisions, significantly enhancing the business's operational capabilities.
+
+---
+
+# Technical details
+
+The main goal was to have a fast and unrestricted access to spreadsheet data hosted on Google Drive. This data was populated and structured with Appsheet, a no-code tool from Google. The project aimed to rapidly make information accessible in a data warehouse, in this case, BigQuery was chosen. It also required a particular structure to ensure that Looker dashboards remained functional despite schema changes, while also necessitating timely updates.
+
+
+![Data flow](/projects/bq.png)
+
+The rate limits imposed by Google's spreadsheets API made imposible to consume the data directly from the source, so a layer in between was needed. The changes on the spreadsheets were detected using Appscript agents, running on background for each of the tracked sources files. These changes posted events on a queue using the Pub/Sub Google service, and were later consumed every half minute by a process that updated the bigquery tables associated to each of the sources.
+
+![Update schema](/projects/bq2.png)
+
+The tables in the warehouse were also consumed by the backend service to show data to users. 
 

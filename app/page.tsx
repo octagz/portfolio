@@ -61,9 +61,15 @@ export default function Home() {
       </h1>
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-md text-blue-300 bg-opacity-75 bg-black">
-          I leverage the power of AI to create innovative solutions for real-life problems.
+      <div className="my-8 text-center animate-fade-in">
+        <h2 className="text-lg font-semibold text-blue-100 bg-opacity-20 bg-black">
+          Sr. Software Engineer Specialized in Artificial Intelligence
+        </h2>
+      </div>
+      
+      <div className="my-2 text-center animate-fade-in">
+        <h2 className="text-md italic font- text-blue-300 bg-opacity-75 bg-black">
+          "I leverage the power of AI to create innovative solutions for real-life problems"
         </h2>
       </div>
     </div>
