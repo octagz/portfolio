@@ -6,5 +6,40 @@ date: "2022-03-01"  # Replace with actual date
 published: true
 ---
 
+
+![Landing page](/projects/com2.png)
+
+# Project description
+
 This project entailed leading a team of six in the development of an e-commerce site. The technical stack included NextJS, PHP Laravel, and Elastic Search, all hosted on AWS infrastructure. My role involved close collaboration with product management for solution refinement and with software engineers to architect the most effective solutions, ensuring both scalability and robust performance.
 
+# Technical details
+
+* *Backend Prowess*: We utilized PHP Laravel, embracing Domain-Driven Design principles for a strong, organized backend.
+* *Frontend Ingenuity*: NextJS was our choice for managing SEO efficiently. We balanced client and server-side rendering based on specific page needs. Notably, Incremental Static Regeneration boosted performance on static product pages.
+* *Seamless Integration*: Products were easily searchable thanks to our integration with Elasticsearch. We also incorporated a Product Information Management tool (Akeneo) for streamlined operations.
+* *Enhanced Image Loading*: We optimized user experience with a configured CDN, ensuring rapid product image loading.
+
+# Search solution
+
+Navigating the complexity of product search, we opted for Elasticsearch. Hosting our own instance gave us complete resource control. The product mapping involved a strategic blend of auto-generated and custom fields, with varying boost levels to highlight key attributes.
+
+Challenges arose with product information updates from third-party vendors. We innovatively addressed this by establishing an event queue capturing every product change. A Laravel worker asynchronously processed these events, updating the Elasticsearch index without the need to rescan the entire product database.
+
+![Product page](/projects/com1.png)
+*A glimpse into our product page*
+
+# Backend performance
+
+* Redis Implementation: For ubiquitous cart information access, Redis was crucial.
+* Performance Enhancement: Laravel Octane, running on Swoole, significantly sped up request handling. Swoole's event-driven concurrency brought unparalleled PHP performance.
+* Database Management: AWS's RDS service was our choice for database needs, offering maintained solutions with efficient monitoring of alerts and resource usage.
+
+
+# User tracking solution
+
+Our tracking tool of choice was Matomo, an open-source alternative to Google Analytics. Opting for a self-hosted Matomo provided exhaustive insights into user behavior, surpassing the aggregated data limitations of Google Analytics. We then leveraged ETL pipelines to allow analysts to delve into raw data for comprehensive analysis.
+
+# DevOps and Release process
+
+Our development cycle was streamlined through four distinct environments: development, testing, staging, and production. This setup, coupled with a meticulously crafted release process and a git-flow-like branching strategy, ensured each release's quality and minimized merge conflicts.
