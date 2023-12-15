@@ -1,10 +1,66 @@
 ---
 title: "AI Product Matching Solution"
-description: Development of an AI solution for matching products from different origins using a combination of Large Language Models (GPT-4) and traditional NLP techniques. This project, executed at Nuqlea, led to an 80% improvement in manual processing time, enabling significant scaling of operations.
-technologies: "Python, GPT-4, NLP Techniques"
+description: Development of an AI solution for matching products from different origins using traditional NLP techniques. This project, executed at Nuqlea, led to an 80% improvement in manual processing time, enabling significant scaling of operations.
+technologies: "Python, NLP Techniques, TF-IDF"
 date: "2023-02-01"  # Replace with actual date
 company: "Nuqlea"
 published: true
 ---
 
-The AI Product Matching Solution at Nuqlea involved developing an innovative approach to match products from various origins. By integrating advanced Large Language Models like GPT-4 with traditional Natural Language Processing techniques, the solution drastically reduced manual processing times by 80%. This improvement was crucial in scaling operations efficiently. The project predominantly used Python, showcasing the power of combining cutting-edge AI models with classic NLP methodologies to solve complex industry challenges.
+![Intro](/projects/prodmatch-intro.png)
+&nbsp;
+# Introduction
+
+The construction industry, while being a major economic player globally, has lagged in embracing digital transformation. This slow digital adoption has resulted in inefficiencies and communication gaps among key players - constructors, distributors, and manufacturers. Traditional processes dominated the scene, and informal means like WhatsApp became the go-to for order management, leading to a lack of traceability and informed decision-making.
+
+The introduction of Nuqlea, an innovative marketplace, aims to revolutionize this scenario by digitizing and optimizing the construction industry's processes. How does Nuqlea tackle these challenges? Let’s dive in!
+
+&nbsp;
+
+# The Challenge of Product Linking
+
+Nuqlea's challenge lies in linking non-standardized product representations from various construction industry players to a unified catalog. This task involves interpreting demanded, quoted, and purchased products amidst varying nomenclature and coding systems, as highlighted in the Entity Linking section.
+
+![Solution Design](/projects/prodmatch-2.png)
+*Information flow description. Each participant names each product differently.*
+
+&nbsp;
+
+# Innovative Solution
+
+### Data Collection and Cleansing
+
+The solution begins with collecting and cleaning datasets from constructors' queries and distributors' listings. These datasets include various attributes like brand, product line, SKU, and more, which undergo rigorous cleansing processes to ensure data quality.
+
+
+### The Unsupervised Modeling Approach
+
+Nuqlea employs an unsupervised modeling approach, favoring techniques like Count Vectorizer and TF-IDF over supervised models. This choice is due to the limited size of collected data, lack of labeled information for named entity recognition models, and the need for a flexible system adaptable to daily catalog updates.
+Entity Linking Model Pipeline
+
+###  The entity linking model comprises several steps:
+1. Named Entity Recognition (NER): Identifying brands, lines, and SKUs from queries using a similarity algorithm.
+2. Search Space Filtering: Narrowing down the catalog based on identified entities.
+3. Catalog Vectorization: Representing catalog products through TF-IDF-based character and word vectors.
+4. Query Vectorization: Transforming queries using a soft TF-IDF approach to accommodate typos.
+5. Candidate Selection: Employing cosine similarity to find the most similar catalog products.
+
+
+![Solution Design](/projects/match-flow.png)
+
+&nbsp;
+
+# Experimental Insights and Results
+
+Nuqlea's model underwent extensive testing, revealing valuable insights:
+
+    Standardizing measures and combining character-level and word-level TF-IDF vectorizations improved product linking accuracy.
+    Named entity recognition significantly increased precision by filtering the search space.
+
+The model achieved a precision of 0.73 and a top-3 precision of 0.82 on the development dataset, demonstrating its effectiveness in automating around 67% of product linkages and assisting in 82% of cases.
+
+&nbsp;
+
+# Conclusion and Future Directions
+
+Nuqlea has shown promising results in automating and assisting product linking in the construction industry, significantly reducing manual efforts. However, there's still room for improvement. Future work includes exploring pre-trained language models like BERT for enhanced named entity recognition and developing a learning system that adapts and improves over time.
