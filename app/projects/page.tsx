@@ -3,6 +3,7 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Redis } from "@upstash/redis";
 import { Projects } from "./projects";
+import { Metadata } from "next";
 
 const redis = Redis.fromEnv();
 

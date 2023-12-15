@@ -3,6 +3,12 @@ import { Badge } from "@/components/ui/badge"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Navigation } from "../components/nav";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'About me',
+};
+
 
 export default function Component() {
   return (
