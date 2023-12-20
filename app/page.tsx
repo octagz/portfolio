@@ -13,7 +13,7 @@ const navigation = [
 
 
 export default function Home() {
-  const name = "octavio gzain.";
+  const name = "Octavio Gzain.";
   const characters = name.split("");
   const [visibleCount, setVisibleCount] = useState(0);
   useEffect(() => {
@@ -32,9 +32,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
+    <div className="pb-32 flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
-        <ul className="flex items-center font-semibold justify-center gap-4 bg-opacity-75 bg-black">
+        <ul className="flex items-center font-semibold justify-center gap-8 bg-opacity-75 bg-black">
           {navigation.map((item) => (
             <Link
               key={item.href}
@@ -63,14 +63,14 @@ export default function Home() {
 
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-8 text-center animate-fade-in">
-        <h2 className="text-lg font-semibold text-blue-100 bg-opacity-20 bg-black">
-          Sr. Software Engineer Specialized in Artificial Intelligence
+        <h2 className="text-lg font-semibold text-blue-100 bg-opacity-20 bg-black text-balance">
+          Sr. Software Engineer Specialized in Artificial&nbsp;Intelligence
         </h2>
       </div>
       
-      <div className="my-2 text-center animate-fade-in">
-        <h2 className="text-md italic font- text-blue-300 bg-opacity-75 bg-black">
-          "I leverage the power of AI to create innovative solutions for real-life problems"
+      <div className="my-2 text-center animate-fade-in px-4 ">
+        <h2 className="text-md italic text-blue-300 bg-opacity-75 bg-black">
+          "I leverage the power of AI to create innovative solutions for real-life&nbsp;problems"
         </h2>
       </div>
     </div>
