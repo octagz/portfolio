@@ -90,35 +90,22 @@ export const Projects: React.FC<Props> = ({ views }) => {
         </div>
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-3">
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 0)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} technologies={project.technologies ?? ""} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 1)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} technologies={project.technologies ?? ""} />
-                </Card>
-              ))}
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-            {sorted
-              .filter((_, i) => i % 3 === 2)
-              .map((project) => (
-                <Card key={project.slug}>
-                  <Article project={project} views={views[project.slug] ?? 0} technologies={project.technologies ?? ""} />
-                </Card>
-              ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto lg:mx-0 animate">
+          {sorted
+            .slice(0, 9) // Limit to 9 items for a 3x3 grid
+            .map((project, index) => (
+              <Card key={project.slug}>
+                <Article 
+                  project={project} 
+                  views={views[project.slug] ?? 0} 
+                  technologies={project.technologies ?? ""} 
+                />
+              </Card>
+            ))
+          }
         </div>
+
+
       </div>
     </div>
   );
