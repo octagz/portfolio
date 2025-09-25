@@ -4,11 +4,10 @@ import { allProjects } from "contentlayer/generated";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import { Article } from "./article";
-import { Eye } from "lucide-react";
 import { Props } from "./page";
 
 
-export const Projects: React.FC<Props> = ({ views }) => {
+export const Projects: React.FC<Props> = () => {
   const featured = allProjects.find((project) => project.slug === "ogz-docai")!;
   const top2 = allProjects.find((project) => project.slug === "ogz-ecommerce")!;
   const top3 = allProjects.find((project) => project.slug === "ogz-product-matcher")!;
@@ -54,12 +53,7 @@ export const Projects: React.FC<Props> = ({ views }) => {
                       <span>SOON</span>
                     )}
                   </div>
-                  <span className="flex gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0
-                    )}
-                  </span>
+                  
                 </div>
 
                 <h2
@@ -83,7 +77,7 @@ export const Projects: React.FC<Props> = ({ views }) => {
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
             {[top2, top3].map((project) => (
               <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} technologies={project.technologies ?? ""} />
+                <Article project={project} technologies={project.technologies ?? ""} />
               </Card>
             ))}
           </div>
@@ -97,7 +91,6 @@ export const Projects: React.FC<Props> = ({ views }) => {
               <Card key={project.slug}>
                 <Article 
                   project={project} 
-                  views={views[project.slug] ?? 0} 
                   technologies={project.technologies ?? ""} 
                 />
               </Card>
