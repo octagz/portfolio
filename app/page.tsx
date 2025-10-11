@@ -88,10 +88,7 @@ export default function Home() {
                   </CardHeader>
                   <CardContent>
                       <p className="text-justify text-gray-200 md:text-lg dark:text-gray-400">
-                          Argentinian engineer with over 7 years of experience in software engineering, specializing in artificial intelligence and real-time data processing. 
-                          Currently working as a Senior Software Engineer at Compass, where I develop and maintain services for ingesting listings in real time from over 200 different sources. 
-                          Based in Santa Barbara, California, my technical background is complemented by strong business skills gained through my Master in Technology Management at UCSB. 
-                          Every day I pursue my curiosity by learning new and interesting things, with aspirations to broaden these exploratory endeavors by offering services to different countries around the world.
+                          I am a technical leader and architect driven by the intersection of advanced software engineering, data science, and artificial intelligence. With a comprehensive background in information systems and technology management, I specialize in designing and delivering scalable, robust solutions that tackle complex challenges. My strength lies in translating strategic visions into actionable technical roadmaps, optimizing system performance, and guiding engineering teams to build innovative, impactful technologies while fostering a culture of continuous learning and progress.
                       </p>
                   </CardContent>
                   <CardHeader>

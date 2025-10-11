@@ -54,12 +54,15 @@ export const Navigation: React.FC<{ currentPage: string }> = ({ currentPage }) =
 					</Link>
 					</div>
 
-					<Link
-						href="/"
-						className="duration-200 text-zinc-300 hover:text-zinc-100"
-					>
-						<ArrowLeft className="w-6 h-6 " />
-					</Link>
+					{currentPage !== "home" && (
+						<Link
+							href="/"
+							className="duration-200 text-zinc-300 hover:text-zinc-100"
+							aria-label="Home"
+						>
+							<ArrowLeft className="w-6 h-6 " />
+						</Link>
+					)}
 				</div>
 			</div>
 		</header>
