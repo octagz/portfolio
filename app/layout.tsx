@@ -2,6 +2,7 @@ import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
+import Script from "next/script";
 import PlausibleProvider from "next-plausible";
 import Analytics from "./analytics";
 import { GA_ID } from "../lib/gtag";
@@ -52,18 +53,19 @@ export default function RootLayout({
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
         <PlausibleProvider domain="8gza.in" />
-        {/* Google tag (gtag.js) - only include when GA_ID is provided and in production */}
-        {GA_ID && process.env.NODE_ENV === "production" ? (
+        {/* Google Analytics (gtag.js) */}
+        {GA_ID ? (
           <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
-            <script
-              // inline script to initialize gtag; kept as string to run in browser
+            <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+            <Script
+              id="gtag-init"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);} 
             gtag('js', new Date());
-            gtag('config', '${GA_ID}');
+            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
           `,
               }}
             />
@@ -71,12 +73,11 @@ export default function RootLayout({
         ) : null}
       </head>
       <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          }`}
+        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
       >
         {children}
-  {/* Client-side analytics that sends pageviews on route changes (only in prod + GA configured) */}
-  {GA_ID && process.env.NODE_ENV === "production" ? <Analytics /> : null}
+        {/* Client-side analytics that sends pageviews on route changes */}
+        {GA_ID ? <Analytics /> : null}
       </body>
     </html>
   );
