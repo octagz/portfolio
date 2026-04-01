@@ -1,5 +1,5 @@
 "use client";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -9,9 +9,26 @@ const navItems = [
 	{ id: "contact", name: "Contact", href: "/contact" },
 ];
 
+function useTheme() {
+	const [dark, setDark] = useState(false);
+
+	useEffect(() => {
+		setDark(document.documentElement.classList.contains("dark"));
+	}, []);
+
+	const toggle = () => {
+		const next = !dark;
+		setDark(next);
+		document.documentElement.classList.toggle("dark", next);
+	};
+
+	return { dark, toggle };
+}
+
 export const Navigation: React.FC<{ currentPage: string }> = ({ currentPage }) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
+	const { dark, toggle } = useTheme();
 
 	useEffect(() => {
 		if (!ref.current) return;
@@ -33,7 +50,7 @@ export const Navigation: React.FC<{ currentPage: string }> = ({ currentPage }) =
 						Octavio Gzain
 					</Link>
 
-					<nav className="hidden gap-8 text-sm sm:flex">
+					<nav className="hidden gap-8 text-sm sm:flex items-center">
 						{navItems.map((item) => (
 							<Link
 								key={item.name}
@@ -47,18 +64,33 @@ export const Navigation: React.FC<{ currentPage: string }> = ({ currentPage }) =
 								{item.name}
 							</Link>
 						))}
+						<button
+							onClick={toggle}
+							aria-label="Toggle dark mode"
+							className="ml-2 rounded-full p-2 text-muted-foreground transition-colors hover:text-foreground hover:bg-muted/50"
+						>
+							{dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+						</button>
 					</nav>
 
-					{currentPage !== "home" && (
-						<Link
-							href="/"
-							className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground sm:hidden"
-							aria-label="Back to home"
+					<div className="flex items-center gap-3 sm:hidden">
+						<button
+							onClick={toggle}
+							aria-label="Toggle dark mode"
+							className="rounded-full p-2 text-muted-foreground transition-colors hover:text-foreground"
 						>
-							<ArrowLeft className="h-4 w-4" />
-						</Link>
-					)}
-					{currentPage === "home" && <div className="sm:hidden" />}
+							{dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+						</button>
+						{currentPage !== "home" && (
+							<Link
+								href="/"
+								className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground"
+								aria-label="Back to home"
+							>
+								<ArrowLeft className="h-4 w-4" />
+							</Link>
+						)}
+					</div>
 				</div>
 			</div>
 		</header>
