@@ -8,8 +8,8 @@ import { Navigation } from "../components/nav";
 const contactMethods = [
   {
     label: "Email",
-    handle: "ogzain@ucsb.edu",
-    href: "mailto:ogzain@ucsb.edu",
+    handle: "octagz.dev@gmail.com",
+    href: "mailto:octagz.dev@gmail.com",
     icon: Mail,
     description: "Best for collaborations, opportunities, and mentoring.",
   },
@@ -30,7 +30,7 @@ const contactMethods = [
   {
     label: "X (Twitter)",
     handle: "@ottogzain",
-    href: "https://x.com/ottogzain",
+    href: "https://x.com/mariskal_ok",
     icon: Twitter,
     description: "Notes on AI, data, and engineering leadership.",
   },
