@@ -30,10 +30,10 @@ export default async function PostPage({ params }: Props) {
   }
 
     return (
-      <div className="bg-zinc-50 min-h-screen">
+      <div className="min-h-screen bg-background text-foreground">
         <Header project={project} />
-        <div className="w-full flex justify-center">
-          <article className="px-10 w-full max-w-3xl py-12 mx-auto prose prose-zinc prose-quoteless">
+        <div className="flex w-full justify-center px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+          <article className="prose prose-slate prose-quoteless w-full max-w-3xl">
             <Mdx code={project.body.code} />
           </article>
         </div>

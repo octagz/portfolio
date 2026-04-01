@@ -1,71 +1,91 @@
-"use client";
-import { Github, Mail, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
-import { SocialIcon } from 'react-social-icons'
 
-const socials = [
-	{
-		icon: <Linkedin size={20} />,
-		href: "https://linkedin.com/in/octavio-gzain",
-		label: "LinkedIn",
-		handle: "Profile",
-	},
-	{
-		icon: <Mail size={20} />,
-		href: "mailto:octagz.dev@gmail.com",
-		label: "@gmail.com",
-		handle: "octagz.dev",
-	},
-	{
-		icon: <Github size={20} />,
-		href: "https://github.com/octagz",
-		label: "Github",
-		handle: "octagz",
-	},
-	{
-		icon: <img src="./x2.png" style={{ width: '40%', height: 'auto', objectFit: 'contain' }}/>,
-		href: "https://x.com/ottogzain",
-		label: "X",
-		handle: "@ottogzain",
-	},
+import { Button } from "@/components/ui/button";
+
+import { Navigation } from "../components/nav";
+
+const contactMethods = [
+  {
+    label: "Email",
+    handle: "ogzain@ucsb.edu",
+    href: "mailto:ogzain@ucsb.edu",
+    icon: Mail,
+    description: "Best for collaborations, opportunities, and mentoring.",
+  },
+  {
+    label: "LinkedIn",
+    handle: "linkedin.com/in/octavio-gzain",
+    href: "https://linkedin.com/in/octavio-gzain",
+    icon: Linkedin,
+    description: "Connect for career stories, team growth, or speaking invites.",
+  },
+  {
+    label: "GitHub",
+    handle: "github.com/octagz",
+    href: "https://github.com/octagz",
+    icon: Github,
+    description: "Open-source experiments and starter kits.",
+  },
+  {
+    label: "X (Twitter)",
+    handle: "@ottogzain",
+    href: "https://x.com/ottogzain",
+    icon: Twitter,
+    description: "Notes on AI, data, and engineering leadership.",
+  },
 ];
 
-export default function Example() {
-	return (
-		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-			<Navigation currentPage="contact"/>
-			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto pb-12">
-				<div className="h-auto grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-4 lg:gap-16">
-					{socials.map((s) => (
-						<Card>
-							<Link
-								href={s.href}
-								target="_blank"
-								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
-							>
-								<span
-									className="relative w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
-									aria-hidden="true"
-								/>
-								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 bg-zinc-900 drop-shadow-orange">
-									{s.icon}
-								</span>{" "}
-								<div className="z-10 flex flex-col items-center">
-									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display">
-										{s.handle}
-									</span>
-									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-										{s.label}
-									</span>
-								</div>
-							</Link>
-						</Card>
-					))}
-				</div>
-			</div>
+export default function ContactPage() {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation currentPage="contact" />
 
-		</div>
-	);
+      <main>
+        <section className="container px-6 lg:px-8 pb-16 pt-36 lg:pt-44">
+          <div className="max-w-2xl space-y-6">
+            <p className="text-sm tracking-[0.25em] uppercase text-muted-foreground">Connect</p>
+            <h1 className="font-display text-4xl tracking-tight text-foreground sm:text-5xl">
+              Let&apos;s build something useful together
+            </h1>
+            <p className="text-base leading-relaxed text-muted-foreground">
+              Whether you need help shaping an AI roadmap, stabilizing a data platform, or are
+              looking for a driven engineer to join your team — I respond fastest via email.
+            </p>
+            <Button asChild size="lg" className="rounded-full">
+              <Link href="mailto:ogzain@ucsb.edu">Send an email</Link>
+            </Button>
+          </div>
+        </section>
+
+        <section className="border-t border-border">
+          <div className="container px-6 lg:px-8 py-16 lg:py-20">
+            <div className="grid gap-8 sm:grid-cols-2">
+              {contactMethods.map((method) => {
+                const Icon = method.icon;
+                return (
+                  <Link
+                    key={method.label}
+                    href={method.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex gap-4 rounded-xl border border-border bg-card/40 p-6 transition-colors hover:border-primary/40 hover:bg-card/70"
+                  >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-muted-foreground transition-colors group-hover:text-primary">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div className="space-y-1">
+                      <p className="text-sm font-medium text-foreground">{method.label}</p>
+                      <p className="text-xs text-muted-foreground">{method.handle}</p>
+                      <p className="text-sm text-muted-foreground">{method.description}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }

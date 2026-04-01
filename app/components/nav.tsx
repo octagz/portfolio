@@ -3,66 +3,62 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 
+const navItems = [
+	{ id: "projects", name: "Projects", href: "/projects" },
+	{ id: "about", name: "About", href: "/about" },
+	{ id: "contact", name: "Contact", href: "/contact" },
+];
+
 export const Navigation: React.FC<{ currentPage: string }> = ({ currentPage }) => {
 	const ref = useRef<HTMLElement>(null);
 	const [isIntersecting, setIntersecting] = useState(true);
 
 	useEffect(() => {
 		if (!ref.current) return;
-		const observer = new IntersectionObserver(([entry]) =>
-			setIntersecting(entry.isIntersecting),
-		);
+		const observer = new IntersectionObserver(([entry]) => setIntersecting(entry.isIntersecting));
 
 		observer.observe(ref.current);
 		return () => observer.disconnect();
 	}, []);
 
 	return (
-		<header ref={ref}>
+		<header ref={ref} className="relative z-50">
 			<div
-				className={`fixed inset-x-0 top-0 z-50 backdrop-blur  duration-200 border-b  ${
-					isIntersecting
-						? "bg-zinc-900/0 border-transparent"
-						: "bg-zinc-900/500  border-zinc-800 "
+				className={`fixed inset-x-0 top-0 border-b backdrop-blur-md transition-colors duration-200 ease-out ${
+					isIntersecting ? "bg-background/60 border-transparent" : "bg-background/90 border-border/60"
 				}`}
 			>
-				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-					<div className="flex justify-between gap-8">
-					<Link
-						href="/projects"
-						className={`duration-200 hover:text-zinc-100 ${
-							currentPage === 'projects' ? 'text-zinc-100 underline' : 'text-zinc-400'
-						}`}
-						>
-						Projects
+				<div className="container mx-auto flex items-center justify-between px-6 py-5 lg:px-8">
+					<Link href="/" className="font-display text-lg tracking-tight text-foreground transition-colors hover:text-primary">
+						Octavio Gzain
 					</Link>
-					<Link
-						href="/about"
-						className={`duration-200 hover:text-zinc-100 ${
-							currentPage === 'about' ? 'text-zinc-100 underline' : 'text-zinc-400'
-						}`}
-						>
-						About me
-					</Link>
-					<Link
-						href="/contact"
-						className={`duration-200 hover:text-zinc-100 ${
-							currentPage === 'contact' ? 'text-zinc-100 underline' : 'text-zinc-400'
-						}`}
-						>
-						Contact
-					</Link>
-					</div>
+
+					<nav className="hidden gap-8 text-sm sm:flex">
+						{navItems.map((item) => (
+							<Link
+								key={item.name}
+								href={item.href}
+								className={`transition-colors ${
+									currentPage === item.id
+										? "text-foreground"
+										: "text-muted-foreground hover:text-foreground"
+								}`}
+							>
+								{item.name}
+							</Link>
+						))}
+					</nav>
 
 					{currentPage !== "home" && (
 						<Link
 							href="/"
-							className="duration-200 text-zinc-300 hover:text-zinc-100"
-							aria-label="Home"
+							className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground sm:hidden"
+							aria-label="Back to home"
 						>
-							<ArrowLeft className="w-6 h-6 " />
+							<ArrowLeft className="h-4 w-4" />
 						</Link>
 					)}
+					{currentPage === "home" && <div className="sm:hidden" />}
 				</div>
 			</div>
 		</header>

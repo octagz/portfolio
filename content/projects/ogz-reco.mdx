@@ -2,9 +2,43 @@
 title: "Product Recommendation System for Construction Marketplace"
 description: Built a collaborative and content-based product recommendation system using techniques such as Single Value Decomposition for a construction marketplace, enhancing user experience and product discovery.
 technologies: "SVD, Python"
-date: "2021-12-01"  # Replace with actual date
+date: "2021-12-01"
 published: true
 ---
 
-This project focused on developing a sophisticated product recommendation system for a construction marketplace. Utilizing advanced techniques like Single Value Decomposition, the system was able to offer both collaborative and content-based recommendations, significantly improving the user experience and aiding in effective product discovery.
+# Introduction
 
+At Nuqlea, the construction marketplace needed a way to surface relevant products to users who were often unfamiliar with the full breadth of available options. Construction professionals — contractors, architects, project managers — typically know exactly what they need for a specific task but may not be aware of alternatives, complementary products, or better-priced options from different manufacturers.
+
+&nbsp;
+
+# Technical Approach
+
+### Hybrid Recommendation Strategy
+
+The system combined two complementary approaches:
+
+- **Collaborative filtering**: Using user behavior patterns (views, purchases, quotes requested) to identify users with similar needs and recommend products that similar users found valuable. This was particularly effective for surfacing cross-category products that users wouldn't have searched for directly.
+- **Content-based filtering**: Leveraging product attributes (category, brand, material, specifications) to recommend products similar to those a user had already interacted with. This ensured recommendations stayed relevant to the user's current project context.
+
+### SVD Implementation
+
+Single Value Decomposition (SVD) was the core technique for the collaborative filtering component. The user-product interaction matrix was decomposed to identify latent factors that captured underlying purchase patterns. Key implementation details:
+
+- Sparse matrix handling for the highly sparse user-product interaction data
+- Dimensionality reduction to balance recommendation quality with computational cost
+- Regular model retraining to incorporate new user behavior and product catalog updates
+
+### Data Sources
+
+The system drew from multiple signals:
+- Product view and search history
+- Quote requests and purchase records
+- Product catalog attributes from the Nuqlea unified catalog
+- Category and brand relationships
+
+&nbsp;
+
+# Results
+
+The recommendation system improved product discovery across the marketplace, helping users find relevant products they wouldn't have found through search alone. The hybrid approach ensured both personalization (through collaborative filtering) and relevance (through content-based filtering), making the platform more valuable for returning users.

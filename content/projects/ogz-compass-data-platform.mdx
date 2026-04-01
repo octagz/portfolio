@@ -1,0 +1,58 @@
+---
+title: "Real-time Data Ingestion Platform at Scale"
+description: Architected Python/Java microservices that ingest terabytes of real estate data daily, powering ML, analytics, and search for 1M+ users at Compass.
+technologies: "Python, Java, Apache Kafka, AWS, Elasticsearch, Distributed Systems"
+date: "2024-04-01"
+published: true
+---
+
+# Introduction
+
+At Compass, one of the largest real estate technology companies in the United States, I worked as a Senior Software Engineer on the data ingestion platform that powers the company's ML, analytics, and search products. The platform processes terabytes of real estate data daily from 200+ MLS (Multiple Listing Service) and commerce feeds, keeping listings synchronized and up-to-date for over one million users.
+
+&nbsp;
+
+# The Challenge
+
+Real estate data is inherently messy and fragmented. Hundreds of data sources publish listing information in different formats, at different frequencies, and with varying levels of quality. The platform needed to:
+
+- Ingest data from 200+ heterogeneous feeds with minimal latency
+- Keep downstream systems (search, ML models, analytics dashboards) synchronized in near real-time
+- Handle terabytes of daily throughput without compromising reliability
+- Adapt to constantly changing source schemas and data quality issues
+
+&nbsp;
+
+# Architecture & Technical Approach
+
+### Microservices Design
+
+The platform was built as a set of Python and Java microservices, each responsible for a specific stage of the ingestion pipeline. This separation of concerns allowed independent scaling and deployment of each component.
+
+### Streaming Infrastructure
+
+Apache Kafka served as the backbone for event-driven communication between services. Each data source change was captured as an event, enabling downstream consumers to react in near real-time rather than relying on batch processing windows.
+
+### Search & Discovery
+
+Elasticsearch powered the property search experience, with carefully designed mappings and indexing strategies to support the complex queries that real estate search requires — geographic filters, price ranges, property attributes, and full-text search across listing descriptions.
+
+&nbsp;
+
+# Key Results
+
+- **Designed microservices** enabling ML, analytics, and search for 1M+ users
+- **Optimized data pipelines** for low-latency, high-throughput ingestion of terabytes daily
+- **Reduced system maintenance costs by ~20%** through cross-team collaboration on shared tooling and memory improvements
+- **Cut incident response time by 40%** through monitoring dashboards and alerting improvements
+- **Improved system availability by 30%** through resiliency features and graceful degradation patterns
+
+&nbsp;
+
+# Tech Stack
+
+- **Languages:** Python, Java
+- **Messaging:** Apache Kafka
+- **Search:** Elasticsearch
+- **Cloud:** AWS
+- **Observability:** Custom monitoring dashboards, alerting pipelines
