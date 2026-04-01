@@ -1,123 +1,303 @@
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { CardHeader, CardContent, Card } from "@/components/ui/card"
-import { Navigation } from "./components/nav";
+import Link from "next/link";
 import { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
+import { Navigation } from "./components/nav";
 
 export const metadata: Metadata = {
-  title: 'Octavio Gzain - Senior Software Engineer',
+  title: "Octavio Gzain — Engineer, Fulbright Scholar, Entrepreneur",
 };
 
-const navigation = [
-  { name: "Projects", href: "/projects" },
-  { name: "About me", href: "/about" },
-  { name: "Contact", href: "/contact" },
+const experience = [
+  {
+    period: "2025 – Present",
+    role: "MTM Student & Founder",
+    org: "UC Santa Barbara",
+    note: "Fulbright Scholar · Founded DaJent (AI for DJs)",
+  },
+  {
+    period: "2024 – 2025",
+    role: "Senior Software Engineer",
+    org: "Compass",
+    note: "Data platforms · 1M+ users · Kafka · Python/Java",
+  },
+  {
+    period: "2021 – 2023",
+    role: "Technical Leader",
+    org: "Nuqlea",
+    note: "6+ engineers · E-commerce · AI/ML · $1M+ transactions",
+  },
+  {
+    period: "2018 – 2021",
+    role: "Software Engineer",
+    org: "digitalstrom AG",
+    note: "IoT · C++ firmware · 10K+ deployed units",
+  },
+];
+
+const focusAreas = [
+  {
+    title: "Intelligent platforms",
+    items: [
+      "LLM-powered product matching and automation",
+      "Human-in-the-loop guardrails & evaluation",
+      "Observability-first AI services",
+    ],
+  },
+  {
+    title: "Data foundations",
+    items: [
+      "Streaming + batch ingestion at terabyte scale",
+      "Data contracts, cataloging, and lineage",
+      "Automated quality gates for downstream teams",
+    ],
+  },
+  {
+    title: "Product leadership",
+    items: [
+      "Roadmaps balancing quick wins with platform bets",
+      "Aligning engineers, PMs, and operators",
+      "Mentoring through career inflection points",
+    ],
+  },
+  {
+    title: "Entrepreneurship",
+    items: [
+      "Founded DaJent — AI-powered DJ workflow platform — at UCSB's NVC",
+      "Market validation and technology strategy",
+      "Bridging technical skills with business impact",
+    ],
+  },
+];
+
+const toolStack = [
+  "Python", "Java", "Node.js", "React", "Next.js", "C++",
+  "PHP Laravel", "Apache Kafka", "AWS", "GCP", "Elasticsearch",
+  "BigQuery", "Airflow", "GPT-4 & LLMs", "Docker",
+];
+
+const honors = [
+  "Fulbright Scholar (2025)",
+  "Smart Port Lab Innovation Challenge Winner (2024)",
+  "NAVES National Entrepreneurship Finalist (2021)",
+  "2nd Place, Patagonia Innova (2020)",
 ];
 
 export default function Home() {
   return (
-    <>
-      <div className="px-4 min-h-screen bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-        <Navigation currentPage="home"/>
-        <section className="pt-24 w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <Avatar className="h-36 w-36 relative">
-                <AvatarImage alt="User Avatar" src="/profile_outside.jpg" className="object-cover absolute top-0 left-0 h-full w-full" />
-                <AvatarFallback>OG</AvatarFallback>
-              </Avatar>
-              <h1 className="text-3xl font-bold text-gray-200 tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">Octavio Gzain</h1>
-              <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl dark:text-400">
-                👨‍💻 Senior Software Engineer (Data/AI)
-              </p>
-              <p className="mx-auto max-w-[700px] text-gray-400 md:text-lg dark:text-400">
-                🏢 <a href="https://www.compass.com/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">Compass</a> • <a href="https://nuqlea.com/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">Nuqlea</a> • <a href="https://www.digitalstrom.com/en/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">DigitalStrom</a>
-              </p>
-              <p className="mx-auto max-w-[700px] text-gray-400 md:text-lg dark:text-400">
-                📍 Santa Bárbara, California
-              </p>
-              <div className="flex flex-row items-center space-x-2 text-center">
-                <Badge className="bg-gray-800 hover:bg-gray-100/50 text-gray-200 dark:hover:bg-gray-800/50" variant="secondary">
-                  Software Engineering Major
-                </Badge>
-                <Badge className="bg-gray-800 hover:bg-gray-100/50 text-gray-200 dark:hover:bg-gray-800/50" variant="secondary">
-                  Data Science Specialization
-                </Badge>
-                <Badge className="bg-gray-800 hover:bg-gray-100/50 text-gray-200 dark:hover:bg-gray-800/50" variant="secondary">
-                  Master in Technology Management
-                </Badge>
+    <div className="min-h-screen bg-background">
+      <Navigation currentPage="home" />
+
+      <main>
+        {/* ── Hero ── */}
+        <section className="container px-6 lg:px-8 pb-20 pt-36 lg:pt-44">
+          <div className="max-w-4xl space-y-8">
+            <p className="text-sm tracking-[0.25em] uppercase text-muted-foreground">
+              Engineer · Fulbright Scholar · Entrepreneur
+            </p>
+            <h1 className="font-display text-6xl leading-[1.05] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+              Octavio<br />Gzain
+            </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              Argentine engineer building at the intersection of AI, engineering, and business.
+              8+ years shipping data platforms, AI products, and leading teams across
+              Argentina, Switzerland, and the United States.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button asChild size="lg" className="rounded-full">
+                <Link href="/projects" className="inline-flex items-center gap-2">
+                  Explore projects <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="rounded-full">
+                <Link href="/contact">Start a conversation</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Stats strip ── */}
+        <section className="border-y border-border bg-card/50">
+          <div className="container px-6 lg:px-8">
+            <div className="grid grid-cols-2 divide-x divide-border sm:grid-cols-4">
+              {[
+                { value: "8+", label: "Years of experience" },
+                { value: "3", label: "Countries" },
+                { value: "1M+", label: "Users served" },
+                { value: "6+", label: "Engineers led" },
+              ].map((stat) => (
+                <div key={stat.label} className="px-6 py-8 text-center">
+                  <p className="font-display text-3xl text-foreground">{stat.value}</p>
+                  <p className="mt-1 text-xs tracking-wider uppercase text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Bio + Now ── */}
+        <section className="container px-6 lg:px-8 py-20 lg:py-28">
+          <div className="grid gap-16 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+            <div className="space-y-8">
+              <div className="flex items-center gap-5">
+                <Avatar className="h-16 w-16 border border-border shadow-sm">
+                  <AvatarImage src="/profile_outside.jpg" alt="Octavio Gzain" className="object-cover" />
+                  <AvatarFallback>OG</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground">About</p>
+                  <h2 className="font-display text-3xl tracking-tight text-foreground">The short version</h2>
+                </div>
               </div>
-              <div className="flex flex-wrap justify-center items-center space-x-2 gap-2">
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  Python
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  NodeJS
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  Express
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  Flask
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  React
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  NextJS
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  TensorFlow
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  GPT
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  Kubernetes
-                </Badge>
-                <Badge className="bg-slate-400/50 hover:bg-slate-600/70 text-slate-200 border-slate-600/30" variant="outline">
-                  Docker
-                </Badge>
+              <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
+                <p>
+                  I&apos;m a Fulbright Scholar pursuing the Master of Technology Management at UC Santa Barbara.
+                  My career spans three countries and bridges deep technical execution with business strategy.
+                </p>
+                <p>
+                  I&apos;ve led engineering teams at startups, built large-scale data systems at Compass
+                  ingesting terabytes of real estate data daily, and shipped AI-powered products in
+                  production — from GPT-4 product matching to DocumentAI invoice recognition.
+                </p>
+                <p>
+                  At UCSB, I founded DaJent — an AI-powered platform that automates music organization
+                  for DJs — through the New Venture Competition, while developing the leadership
+                  and business skills to complement my engineering background.
+                </p>
+              </div>
+              <Link href="/about" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4">
+                Read the full story <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            <div className="space-y-6 lg:pt-8">
+              <h3 className="text-sm tracking-[0.2em] uppercase text-muted-foreground">Now — 2026</h3>
+              <div className="rounded-xl border border-border bg-card/60 p-6 space-y-5">
+                <dl className="space-y-4">
+                  {[
+                    { dt: "Current", dd: "MTM Student & Founder · UC Santa Barbara" },
+                    { dt: "Building", dd: "DaJent — AI-powered DJ workflow platform" },
+                    { dt: "Previously", dd: "Senior Software Engineer · Compass" },
+                    { dt: "Location", dd: "Santa Barbara, California" },
+                  ].map((item) => (
+                    <div key={item.dt}>
+                      <dt className="text-xs tracking-wider uppercase text-muted-foreground">{item.dt}</dt>
+                      <dd className="mt-0.5 text-sm font-medium text-foreground">{item.dd}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="border-t border-border pt-4 text-sm text-muted-foreground">
+                  Seeking post-graduation opportunities in Engineering Management, Senior Engineering, Solutions Architecture, or Technical PM.{" "}
+                  <Link href="/contact" className="font-medium text-foreground underline-offset-4 hover:underline">
+                    Let&apos;s talk.
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-          <div className="px-4 flex justify-center lg:mx-0">
-              <Card className="mt-10 max-w-4xl w-full rounded-lg bg-gradient-to-br from-zinc-800/20 to-zinc-900/40 backdrop-blur-sm border-0 shadow-xl" style={{ borderRadius: '1rem' }}>
-                  <CardHeader>
-                      <h2 className="text-2xl text-gray-200 font-bold">About Me</h2>
-                  </CardHeader>
-                  <CardContent>
-                      <p className="text-justify text-gray-200 md:text-lg dark:text-gray-400">
-                          I am a technical leader and architect driven by the intersection of advanced software engineering, data science, and artificial intelligence. With a comprehensive background in information systems and technology management, I specialize in designing and delivering scalable, robust solutions that tackle complex challenges. My strength lies in translating strategic visions into actionable technical roadmaps, optimizing system performance, and guiding engineering teams to build innovative, impactful technologies while fostering a culture of continuous learning and progress.
-                      </p>
-                  </CardContent>
-                  <CardHeader>
-                      <h2 className="text-2xl text-gray-200 font-bold">Honors & Awards</h2>
-                  </CardHeader>
-                  <CardContent>
-                      <div className="text-gray-200 md:text-lg dark:text-gray-400">
-                          <p className="font-semibold">Fulbright Alumni</p>
-                          <p className="text-sm text-gray-400">Issued by <a href="https://www.fulbrightprogram.org/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">Fulbright Foreign Scholarship Board</a> · Nov 2024 · Associated with <a href="https://www.ucsb.edu/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">UC Santa Barbara</a></p>
-                          <p className="mt-2">
-                              I've been selected to be part of the Fulbright Alumni by the Fulbright Foreign Scholarship Board. The Fulbright Program offers grants to study, teach and conduct research for U.S. citizens to go abroad and for non-U.S. citizens to come to the United States.
-                          </p>
-                      </div>
-                  </CardContent>
-                  <CardHeader>
-                      <h2 className="text-2xl text-gray-200 font-bold">Hobbies</h2>
-                  </CardHeader>
-                  <CardContent>
-                      <p className="text-gray-200 md:text-lg dark:text-gray-400">
-                          I love playing guitar, I was in a shoegaze band called 
-                          <a href="https://www.instagram.com/laedaddelespacio/" className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer"> La edad del espacio</a> 🎸.
-                          I also love playing football ⚽, DJing 🎶 and traveling around the world.
-                      </p>
-                  </CardContent>
-              </Card>
-          </div>
-
         </section>
-      </div>
-    </>
-  )
+
+        {/* ── Experience ── */}
+        <section className="border-y border-border bg-card/30">
+          <div className="container px-6 lg:px-8 py-20 lg:py-28 space-y-10">
+            <div>
+              <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground">Experience</p>
+              <h2 className="mt-2 font-display text-3xl tracking-tight text-foreground sm:text-4xl">Where I&apos;ve been</h2>
+            </div>
+            <div className="divide-y divide-border">
+              {experience.map((item) => (
+                <div key={item.org} className="grid gap-2 py-6 sm:grid-cols-[180px_1fr] sm:gap-8">
+                  <p className="text-sm text-muted-foreground tabular-nums">{item.period}</p>
+                  <div>
+                    <p className="font-medium text-foreground">{item.role} <span className="text-muted-foreground">· {item.org}</span></p>
+                    <p className="mt-1 text-sm text-muted-foreground">{item.note}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Focus areas ── */}
+        <section className="container px-6 lg:px-8 py-20 lg:py-28 space-y-10">
+          <div>
+            <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground">How I help</p>
+            <h2 className="mt-2 font-display text-3xl tracking-tight text-foreground sm:text-4xl">Focus areas</h2>
+          </div>
+          <div className="grid gap-12 sm:grid-cols-2">
+            {focusAreas.map((area) => (
+              <div key={area.title} className="space-y-4">
+                <h3 className="font-display text-xl text-foreground">{area.title}</h3>
+                <ul className="space-y-2.5 text-sm text-muted-foreground">
+                  {area.items.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Honors ── */}
+        <section className="border-y border-border bg-card/30">
+          <div className="container px-6 lg:px-8 py-14">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-12">
+              <p className="shrink-0 text-sm tracking-[0.2em] uppercase text-muted-foreground sm:w-[180px]">Honors & awards</p>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                {honors.map((h, i) => (
+                  <span key={h}>
+                    {i === 0 ? <span className="font-medium text-foreground">{h}</span> : h}
+                    {i < honors.length - 1 && <span className="ml-6 text-border">|</span>}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Toolbox ── */}
+        <section className="container px-6 lg:px-8 py-20 lg:py-28 space-y-8">
+          <div>
+            <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground">Toolbox</p>
+            <h2 className="mt-2 font-display text-3xl tracking-tight text-foreground">Technologies I reach for</h2>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {toolStack.map((tool) => (
+              <Badge
+                key={tool}
+                variant="outline"
+                className="border-border bg-card/60 px-3 py-1 text-sm text-foreground transition-colors hover:border-primary/60 hover:text-primary"
+              >
+                {tool}
+              </Badge>
+            ))}
+          </div>
+        </section>
+
+        {/* ── CTA footer ── */}
+        <section className="border-t border-border">
+          <div className="container px-6 lg:px-8 py-20 lg:py-28 text-center space-y-6">
+            <h2 className="font-display text-3xl tracking-tight text-foreground sm:text-4xl">
+              Let&apos;s build something together
+            </h2>
+            <p className="mx-auto max-w-lg text-base text-muted-foreground">
+              Whether you need help shaping an AI strategy, stabilizing a data platform, or are looking for a driven engineer joining your team.
+            </p>
+            <Button asChild size="lg" className="rounded-full">
+              <Link href="/contact" className="inline-flex items-center gap-2">
+                Start a conversation <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }

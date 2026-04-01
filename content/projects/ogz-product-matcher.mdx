@@ -1,7 +1,7 @@
 ---
 title: "AI Product Matching Solution"
 description: Development of an AI solution for matching products from different origins using traditional NLP techniques. This project, executed at Nuqlea, led to an 80% improvement in manual processing time, enabling significant scaling of operations.
-technologies: "Python, NLP Techniques, TF-IDF"
+technologies: "Python, NLP Techniques, TF-IDF, GPT-4"
 date: "2023-02-01"  # Replace with actual date
 published: true
 ---
@@ -62,4 +62,16 @@ The model achieved a precision of 0.73 and a top-3 precision of 0.82 on the deve
 
 # Conclusion and Future Directions
 
-Nuqlea has shown promising results in automating and assisting product linking in the construction industry, significantly reducing manual efforts. However, there's still room for improvement. Future work includes exploring pre-trained language models like BERT for enhanced named entity recognition and developing a learning system that adapts and improves over time.
+Nuqlea has shown promising results in automating and assisting product linking in the construction industry, significantly reducing manual efforts.
+
+&nbsp;
+
+# Evolution: LLM-powered Matching
+
+After the initial TF-IDF approach proved the concept, we evolved the system by integrating GPT-4 to handle edge cases the NLP model couldn't resolve. The LLM-powered approach brought several advantages:
+
+- **Higher accuracy on ambiguous queries**: GPT-4's contextual understanding handled product descriptions that relied on domain knowledge the statistical model lacked.
+- **International scalability**: The language model could process product names and descriptions in multiple languages without separate pipelines.
+- **Reduced manual work by 80%**: Combined with the original NLP pipeline, the GPT-4 integration automated the vast majority of product matching, freeing the operations team to focus on strategic tasks.
+
+The hybrid approach — using TF-IDF for high-confidence matches and GPT-4 for ambiguous or complex cases — proved to be both cost-effective and highly accurate, enabling Nuqlea to scale its catalog operations significantly.

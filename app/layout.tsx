@@ -1,6 +1,5 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
+import { Playfair_Display, Outfit } from "@next/font/google";
 import { Metadata } from "next";
 import Script from "next/script";
 import PlausibleProvider from "next-plausible";
@@ -9,14 +8,14 @@ import { GA_ID } from "../lib/gtag";
 
 export const metadata: Metadata = {
   title: {
-    default: "Portfolio | 8gza.in",
+    default: "Octavio Gzain | 8gza.in",
     template: "%s | 8gza.in",
   },
-  description: "Software Engineer specializing in Artificial Intelligence. Octavio Gzain. 8gza.in",
+  description: "Argentine engineer and Fulbright Scholar building at the intersection of AI, engineering, and business. Octavio Gzain. 8gza.in",
   openGraph: {
-    title: "8gza.in",
+    title: "Octavio Gzain",
     description:
-      "Software Engineer specializing in Artificial Intelligence",
+      "Argentine engineer and Fulbright Scholar building at the intersection of AI, engineering, and business.",
     url: "https://8gza.in",
     siteName: "8gza.in",
     images: [
@@ -39,10 +38,34 @@ export const metadata: Metadata = {
   },
 };
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-// The CalSans font is stored in `public/fonts/CalSans-SemiBold.ttf`.
-// Use the public font file so Next.js can find it during the build.
-const calSans = LocalFont({ src: "../public/fonts/CalSans-SemiBold.ttf", variable: "--font-calsans" });
+const displayFont = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const bodyFont = Outfit({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const themeInitializer = `
+(function() {
+  const applyTheme = (isDark) => {
+    document.documentElement.classList.toggle('dark', isDark);
+  };
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  if (!mql) return;
+  applyTheme(mql.matches);
+  const listener = (event) => applyTheme(event.matches);
+  if (typeof mql.addEventListener === 'function') {
+    mql.addEventListener('change', listener);
+  } else if (typeof mql.addListener === 'function') {
+    mql.addListener(listener);
+  }
+})();
+`;
 
 export default function RootLayout({
   children,
@@ -50,10 +73,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+    <html lang="en" className={[bodyFont.variable, displayFont.variable].join(" ")} suppressHydrationWarning>
       <head>
+        <Script id="prefers-theme" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: themeInitializer }} />
         <PlausibleProvider domain="8gza.in" />
-        {/* Google Analytics (gtag.js) */}
         {GA_ID ? (
           <>
             <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
@@ -63,7 +86,7 @@ export default function RootLayout({
               dangerouslySetInnerHTML={{
                 __html: `
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);} 
+            function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_ID}', { page_path: window.location.pathname });
           `,
@@ -72,11 +95,8 @@ export default function RootLayout({
           </>
         ) : null}
       </head>
-      <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined}`}
-      >
+      <body className={`min-h-screen font-body bg-background text-foreground antialiased ${process.env.NODE_ENV === "development" ? "debug-screens" : ""}`}>
         {children}
-        {/* Client-side analytics that sends pageviews on route changes */}
         {GA_ID ? <Analytics /> : null}
       </body>
     </html>
