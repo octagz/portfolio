@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const experience = [
   {
     period: "2025 – Present",
-    role: "MTM Student & Founder",
+    role: "MTM Student & Founding Engineer",
     org: "UC Santa Barbara",
-    note: "Fulbright Scholar · Founded DaJent (AI for DJs)",
+    note: "Fulbright Scholar · Founding Engineer at DaJent (AI for DJs)",
   },
   {
     period: "2024 – 2025",
@@ -67,7 +67,7 @@ const focusAreas = [
   {
     title: "Entrepreneurship",
     items: [
-      "Founded DaJent — AI-powered DJ workflow platform — at UCSB's NVC",
+      "Founding Engineer at DaJent — AI-powered DJ workflow platform — built at UCSB's NVC",
       "Market validation and technology strategy",
       "Bridging technical skills with business impact",
     ],
@@ -164,9 +164,9 @@ export default function Home() {
                   production — from GPT-4 product matching to DocumentAI invoice recognition.
                 </p>
                 <p>
-                  At UCSB, I founded DaJent — an AI-powered platform that automates music organization
-                  for DJs — through the New Venture Competition, while developing the leadership
-                  and business skills to complement my engineering background.
+                  At UCSB, I joined DaJent as Founding Engineer — an AI-powered platform that automates
+                  music organization for DJs — through the New Venture Competition, while developing
+                  the leadership and business skills to complement my engineering background.
                 </p>
               </div>
               <Link href="/about" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4">
@@ -179,7 +179,7 @@ export default function Home() {
               <div className="rounded-xl border border-border bg-card/60 p-6 space-y-5">
                 <dl className="space-y-4">
                   {[
-                    { dt: "Current", dd: "MTM Student & Founder · UC Santa Barbara" },
+                    { dt: "Current", dd: "MTM Student & Founding Engineer · UC Santa Barbara" },
                     { dt: "Building", dd: "DaJent — AI-powered DJ workflow platform" },
                     { dt: "Previously", dd: "Senior Software Engineer · Compass" },
                     { dt: "Location", dd: "Santa Barbara, California" },

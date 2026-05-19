@@ -21,9 +21,9 @@ const credentialBadges = [
 const journey = [
   {
     period: "2025 – Present",
-    title: "UC Santa Barbara · MTM Student & Founder",
+    title: "UC Santa Barbara · MTM Student & Founding Engineer",
     description:
-      "Pursuing Master of Technology Management as a Fulbright Scholar. Founded DaJent, an AI-powered platform that automates music organization for DJs, through the New Venture Competition.",
+      "Pursuing Master of Technology Management as a Fulbright Scholar. Founding Engineer at DaJent, an AI-powered platform that automates music organization for DJs, built through the New Venture Competition.",
     tags: ["Entrepreneurship", "AI/ML", "SaaS"],
   },
   {
